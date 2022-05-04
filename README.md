@@ -1,7 +1,7 @@
 # Simple shopping cart
 
--redux toolkit
--firebase
--toastify
--tailwind
--mui icons
+redux toolkit,
+firebase,
+toastify,
+tailwind,
+mui icons
