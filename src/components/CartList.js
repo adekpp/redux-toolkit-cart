@@ -2,7 +2,7 @@ import React from "react";
 
 export const CartList = ({ children }) => {
   return (
-    <div className="flex flex-col mt-11 md:w-2/3 mx-auto">
+    <div className="flex flex-col md:w-2/3 mx-auto">
       <table className="table-fixed">
         <thead>
           <tr>

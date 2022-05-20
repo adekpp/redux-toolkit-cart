@@ -31,14 +31,17 @@ export const Cart = () => {
       <CartList>
         <CartProduct />
       </CartList>
+      <div className=" md:w-2/3 mx-auto">
+        <div className="flex flex-row justify-end mr-2">
+          <div>
+            <p className="font-semibold text-lg mr-3">TOTAL:</p>
+          </div>
 
-      <div className="flex flex-row justify-end mr-2">
-        <div>
-          <p className="font-semibold text-lg mr-3">TOTAL:</p>
-        </div>
-
-        <div className="w-14 md:w-24 text-center">
-          <span className="font-semibold text-lg text-green-500">{total}$</span>
+          <div className="w-14 md:w-24 text-center">
+            <span className="font-semibold text-lg text-green-500">
+              {total}$
+            </span>
+          </div>
         </div>
       </div>
       <div className="flex flex-col items-center mt-3">
@@ -49,7 +52,7 @@ export const Cart = () => {
         </div>
         <div>
           <Link to="/">
-            <button className="hover:text-orange-500">
+            <button className="underline hover:text-orange-500">
               or continue shopping
             </button>
           </Link>

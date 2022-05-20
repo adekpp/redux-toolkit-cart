@@ -1,5 +1,6 @@
 import { createSlice } from "@reduxjs/toolkit";
 import { toast } from "react-toastify";
+import { Products } from "../../pages/Products";
 const initialState = {
   cartItems: [],
   amount: 0,
@@ -17,6 +18,7 @@ const cartSlice = createSlice({
       } else {
         cartItem.amount = cartItem.amount + 1;
       }
+     
       toast.success("Added to cart", {
         position: "top-center",
         autoClose: 1000,
