@@ -60,7 +60,7 @@ export const Search = ({ data }) => {
           )}
         </div>
       </div>
-      {filteredData.length != 0 && (
+      {filteredData.length !== 0 && (
         <div className="dataResults bg-white w-60 absolute overflow-hidden overflow-y-auto">
           {filteredData.slice(0, 5).map((value, key) => {
             return (
@@ -73,7 +73,11 @@ export const Search = ({ data }) => {
                 }}
               >
                 <div className="py-4 px-2 hover:bg-gray-200 flex place-items-center">
-                  <img src={value.img} className="h-[100px] mr-2" />
+                  <img
+                    src={value.img}
+                    className="h-[100px] mr-2"
+                    alt={value.title}
+                  />
                   <p>{value.title}</p>
                 </div>
               </Link>

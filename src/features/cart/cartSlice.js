@@ -1,6 +1,5 @@
 import { createSlice } from "@reduxjs/toolkit";
 import { toast } from "react-toastify";
-import { Products } from "../../pages/Products";
 const initialState = {
   cartItems: [],
   amount: 0,

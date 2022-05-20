@@ -35,7 +35,7 @@ export const ProductsDetails = () => {
     
       {product &&
         product.map((product) => (
-          <div key={product.id} className="container px-5  mx-auto mt-[10px] md:mt-[100px] mb-5 ">
+          <div key={product.id} className="container px-5  mx-auto mt-[10px] md:mt-[50px] mb-5 ">
             <div className="lg:w-4/5 mx-auto flex flex-wrap">
               <img
                 alt="ecommerce"

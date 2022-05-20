@@ -1,6 +1,6 @@
 import "./App.css";
 import "react-toastify/dist/ReactToastify.css";
-import { BrowserRouter, Link, Route, Routes } from "react-router-dom";
+import { BrowserRouter, Route, Routes } from "react-router-dom";
 import { Products } from "./pages/Products";
 import Header from "./components/Header";
 import { Cart } from "./components/Cart";
@@ -23,8 +23,8 @@ function App() {
 
   return (
     <BrowserRouter>
-      <Header products={documents}/>
-      
+      <Header products={documents} />
+
       <ToastContainer
         position="top-center"
         autoClose={1000}

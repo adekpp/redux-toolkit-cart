@@ -1,4 +1,4 @@
-import React, { useEffect } from "react";
+import React from "react";
 import { useSelector, useDispatch } from "react-redux";
 import { removeItem, increase, decrease } from "../features/cart/cartSlice";
 import ExpandLessIcon from "@mui/icons-material/ExpandLess";
