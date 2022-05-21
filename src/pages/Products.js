@@ -1,11 +1,20 @@
 import React from "react";
 import ProductCard from "../components/ProductCard";
-
+import "./Products.css";
 export const Products = ({ products, isPending, error }) => {
   if (isPending) {
     return (
-      <div>
-        <h1>LOADING...</h1>
+      <div className="h-[300px] grid place-content-center">
+        <div class="lds-roller">
+          <div></div>
+          <div></div>
+          <div></div>
+          <div></div>
+          <div></div>
+          <div></div>
+          <div></div>
+          <div></div>
+        </div>
       </div>
     );
   }

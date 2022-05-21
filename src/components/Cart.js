@@ -4,7 +4,7 @@ import { calculateTotals } from "../features/cart/cartSlice";
 import { Link } from "react-router-dom";
 import { CartList } from "./CartList";
 import { CartProduct } from "./CartProduct";
-
+import { motion } from "framer-motion";
 export const Cart = () => {
   const { cartItems, total, amount } = useSelector((store) => store.cart);
 
