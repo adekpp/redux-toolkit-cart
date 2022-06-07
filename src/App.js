@@ -12,8 +12,8 @@ import { ToastContainer } from "react-toastify";
 import { useCollection } from "./hooks/useCollection";
 
 function App() {
-  const { documents, isPending, error } = useCollection("products");
-  const { cartItems } = useSelector((state) => state.cart);
+  const { isPending, error } = useCollection("products");
+  const { cartItems, products } = useSelector((state) => state.cart);
 
   const dispatch = useDispatch();
 
@@ -23,7 +23,7 @@ function App() {
 
   return (
     <BrowserRouter>
-      <Header products={documents} />
+      <Header products={products} />
 
       <ToastContainer
         position="top-center"
@@ -42,7 +42,7 @@ function App() {
           path="/"
           element={
             <Products
-              products={documents}
+              products={products}
               isPending={isPending}
               error={error}
             />

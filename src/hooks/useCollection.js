@@ -1,12 +1,15 @@
 import { useState, useEffect } from "react";
 import { db } from "../firebase/config";
 import { collection, onSnapshot } from "firebase/firestore";
+import { useDispatch } from "react-redux";
+import { getProducts } from "../features/cart/cartSlice";
 
 export const useCollection = (collectionName) => {
   const [documents, setDocuments] = useState(null);
   const [isPending, setIsPending] = useState(false);
   const [error, setError] = useState(false);
-
+  const dispatch = useDispatch();
+  
   useEffect(() => {
     setIsPending(true);
 
@@ -15,7 +18,7 @@ export const useCollection = (collectionName) => {
       ref,
       (snapshot) => {
         if (snapshot.empty) {
-          setError("Nie ma nic do zatwierdzenia.");
+          setError("Empty collection");
           setIsPending(false);
           setDocuments(null);
         } else {
@@ -23,6 +26,7 @@ export const useCollection = (collectionName) => {
           snapshot.docs.forEach((doc) => {
             results.push({ ...doc.data(), id: doc.id });
           });
+          dispatch(getProducts(results));
           setDocuments(results);
           setIsPending(false);
           setError(null);
@@ -35,7 +39,7 @@ export const useCollection = (collectionName) => {
     );
 
     return () => unsub();
-  }, [collectionName]);
+  }, [collectionName, dispatch]);
 
   return { documents, isPending, error };
 };
