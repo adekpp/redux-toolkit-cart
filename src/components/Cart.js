@@ -1,18 +1,23 @@
-import React, { useEffect } from "react";
+import React, { useEffect, useState } from "react";
 import { useSelector, useDispatch } from "react-redux";
 import { calculateTotals } from "../features/cart/cartSlice";
 import { Link } from "react-router-dom";
 import { CartList } from "./CartList";
 import { CartProduct } from "./CartProduct";
 
+import { motion } from "framer-motion";
 export const Cart = () => {
   const { cartItems, total, amount } = useSelector((store) => store.cart);
+  const [totalPrev, setTotalPrev] = useState();
 
   const dispatch = useDispatch();
 
   useEffect(() => {
+    if (totalPrev !== total) {
+      setTotalPrev((totalPrev) => total);
+    }
     dispatch(calculateTotals());
-  }, [dispatch, cartItems]);
+  }, [dispatch, cartItems, total, totalPrev]);
 
   if (amount < 1)
     return (
@@ -38,8 +43,25 @@ export const Cart = () => {
           </div>
 
           <div className="w-14 md:w-24 text-center">
-            <span className="font-semibold text-lg text-green-500">
-              {total}$
+            <span
+              initial={{ y: -10 }}
+              animate={{ y: 0 }}
+              exit={{ y: -10 }}
+              transition={{ duration: 1 }}
+              className="font-semibold text-lg text-green-500"
+            >
+              {total === totalPrev ? (
+                <motion.p
+                  initial={{ scale: 0 }}
+                  animate={{ scale: 1.2 }}
+                  exit={{ scale: -10 }}
+                  transition={{ duration: 0.3 }}
+                >
+                  {total}$
+                </motion.p>
+              ) : (
+                <p>{total}$</p>
+              )}
             </span>
           </div>
         </div>
